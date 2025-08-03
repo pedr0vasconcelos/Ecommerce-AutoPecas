@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">    
+    <script src="/assets/scripts/script.js"></script>
+</head>
+<body>
+    <!--Barra de Navegação-->
+    <div class="navbar">
+      <div class="header-inner-content">
+        <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='img/logo-garage2.png') }}" alt="Logo"></a>
+          <nav>
+            <ul>
+              <li><a href="{{ url_for('index') }}">Porcelana</a></li>
+              <li><a href="{{ url_for('index') }}">Pedra Natural</a></li>
+              <li><a href="{{ url_for('index') }}">Cristal</a></li>
+              <li><a href="{{ url_for('index') }}">Pérolas</a></li>
+              <li><a href="{{ url_for('login') }}">Metal</a></li>
+              <li><a href="{{ url_for('index') }}">Emborrachados</a></li>
+          </ul>          
+          </nav>
+            <div class="nav-icon-container">
+                {% if session.get('username') == 'admin' %}
+                <a href="{{ url_for('admin') }}"><img src="{{ url_for('static', filename='img/admin.png') }}" alt="Admin"/></a>
+                {% endif %}    
+                {% if session.get('username') %}
+                <a href="{{ url_for('logout') }}"><img src="{{ url_for('static', filename='img/logout.png') }}" alt="Admin"/></a>
+                {% endif %}        
+            <a href="{{ url_for('login') }}"><img src="{{ url_for('static', filename='img/user.png') }}" alt="User"/></a>
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/instagram.png') }}" alt="Instagram"/></a>
+            <a href="{{ url_for('carrinho') }}" class="cart-icon">
+                <img src="{{ url_for('static', filename='img/cart.png') }}" alt="Carrinho"/>
+                <!-- Sempre renderize o span para a contagem -->
+                <span id="cart-count" class="cart-count">{{ quantidade_total if quantidade_total > 0 else 0 }}</span>
+            </a>
+            <img src="{{ url_for('static', filename='img/menu.png') }}" class="menu-button" alt="Menu"/>            
+            </div>
+      </div>
+  </div>
+  <main>
+    <div class="admin-container">
+        <h2>Painel de Administração</h2>
+
+        <!-- Botões de alternância -->
+        <div class="admin-buttons">
+            <button id="btn-produtos">
+                <a href="{{ url_for('product_control') }}"><img src="{{ url_for('static', filename='img/products-icon.png') }}" alt="Product"/></a>
+                <h3>Gerenciar Produtos</h3>
+            </button>
+            <button id="btn-usuarios">
+                <a href="{{ url_for('user_control') }}"><img src="{{ url_for('static', filename='img/users-icon.png') }}" alt="User"/></a>
+                <h3>Gerenciar Usuários</h3>                
+            </button>
+        </div>
+
+        <!-- Seção de gerenciamento de produtos 
+        <section id="produtos-section" class="admin-section">
+            <h3>Gerenciar Produtos</h3>
+             Conteúdo existente para produtos 
+        </section>
+
+         Seção de gerenciamento de usuários 
+        <section id="usuarios-section" class="admin-section" style="display: none;">
+            <h3>Gerenciar Usuários</h3>
+            <p>Aqui você pode gerenciar os usuários.</p>
+             Adicione mais conteúdo para usuários conforme necessário 
+        </section>
+
+         Botão de voltar 
+        <button id="btn-voltar" style="display: none;">Voltar</button> -->
+    </div>
+    </main>
+
+    <footer class="pink-background">
+        <div class="page-inner-content footer-content">
+            <div class="download-options">
+                <p>Baixe nosso Aplicativo</p>
+                <p>Baixe nosso Aplicativo para Android e iOS</p>
+                <div>
+                    <img src="/img/play-store.png" alt="" />
+                    <img src="/img/app-store.png" alt="" />
+                </div>
+            </div>
+            <div class="logo-footer">
+              <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='img/Afeto.png') }}" alt="Logo"></a>
+                <p>Ecommerce de Terços</p>
+            </div>
+            <div class="links-footer">
+                <h3>Links úteis</h3>
+                <ul>
+                    <li>Cupons</li>
+                    <li>Blog Post</li>
+                    <li>Políticas</li>
+                    <li>Torne-se Afiliado</li>                    
+                </ul>
+            </div>
+        </div>
+          <hr class="page-inner-content"/>
+          <div class="page-inner-content copyright">
+            <p>Copyright 2024 - Pedro Vasconcelos  - Todos os Direitos Reservados</p>
+          </div>
+    </footer>    
+</body>
+</html>

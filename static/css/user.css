@@ -1,0 +1,111 @@
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+main section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main section h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #555;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 5px;
+}
+
+main section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+main table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+main table thead {
+    background-color: #eaeaea;
+}
+
+main table th, main table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+main table th {
+    font-size: 1.1em;
+    color: #444;
+}
+
+main table td {
+    font-size: 1em;
+    color: #333;
+}
+
+main table tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+main table tr:hover {
+    background-color: #f1f1f1;
+}
+
+main table td span {
+    font-weight: bold;
+}
+
+main table td span[style*="color: green;"] {
+    color: green;
+}
+
+main table td span[style*="color: red;"] {
+    color: red;
+}
+.repeat-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.repeat-btn:hover {
+    background-color: #45a049;
+}
+
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    main {
+        width: 95%;
+    }
+}

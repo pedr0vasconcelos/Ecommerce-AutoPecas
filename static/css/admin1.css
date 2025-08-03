@@ -1,0 +1,32 @@
+.admin-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.admin-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.2s ease;
+}
+
+.admin-buttons button:hover {
+    transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
+}
+
+.admin-buttons button img {
+    width: 100px; /* Largura da imagem */
+    height: 100px; /* Altura da imagem */
+    margin-bottom: 10px; /* Espaço entre imagem e texto */
+}
+
+.admin-buttons button span {
+    display: block;
+    font-size: 16px; /* Tamanho do texto abaixo da imagem */
+    color: #333; /* Cor do texto */
+    font-weight: bold;
+}

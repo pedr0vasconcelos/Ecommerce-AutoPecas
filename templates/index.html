@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venda de Terços </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>       
+</head>
+<body>
+    <!--Barra de Navegação--> 
+    <div class="navbar">
+        <div class="header-inner-content">
+            <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='img/logo-garage2.png') }}" alt="Logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Rodas</a></li>
+                    <li><a href="{{ url_for('index') }}">Freios</a></li>
+                    <li><a href="{{ url_for('index') }}">Baterias</a></li>
+                    <li><a href="{{ url_for('index') }}">Filtros</a></li>
+                    <li><a href="{{ url_for('index') }}">Funelaria</a></li>
+                    <li><a href="{{ url_for('index') }}">Pintura</a></li>
+                </ul>                
+            </nav>
+            <div class="nav-icon-container">
+                {% if session.get('username') == 'admin' %}
+                <a href="{{ url_for('admin') }}"><img src="{{ url_for('static', filename='img/admin.png') }}" alt="Admin"/></a>
+                {% endif %}    
+                {% if session.get('username') %}
+                <a href="{{ url_for('logout') }}"><img src="{{ url_for('static', filename='img/logout.png') }}" alt="Admin"/></a>
+                {% endif %}        
+                <a href="{% if session.get('user_id') %}{{ url_for('user') }}{% else %}{{ url_for('login') }}{% endif %}">
+                    <img src="{{ url_for('static', filename='img/user.png') }}" alt="User"/>
+                </a>
+                <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/instagram.png') }}" alt="Instagram"/></a>
+                <a href="{{ url_for('carrinho') }}" class="cart-icon">
+                <img src="{{ url_for('static', filename='img/cart.png') }}" alt="Carrinho"/>
+                <!-- Sempre renderize o span para a contagem -->
+                <span id="cart-count" class="cart-count">{{ quantidade_total if quantidade_total > 0 else 0 }}</span>
+            </a>
+            <img src="{{ url_for('static', filename='img/menu.png') }}" class="menu-button" alt="Menu"/> 
+            </div>                        
+        </div>
+    </div>
+    <header>
+        <div class="header-inner-content">
+            <div class="header-bottom-side">
+                <div class="header-bottom-side-left">
+                    <h2>Venda de Peças Automotivas Online</h2>
+                    <p>A melhor opção para o seu véiculo</p>
+                    <button>Ver Agora &#8594;</button>
+                </div>
+                <div class="header-bottom-side-right">                    
+                    <a href="{{ url_for('produto', produto_id=10) }}">
+                        <img src="{{ url_for('static', filename='img/logo-garage.png') }}" alt="produto10"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!--Slider de Produtos--> 
+        <div class="pink-background">
+            <div class="setas-slider">
+                <!--<button><i class='bx bx-chevron-left'></i></button>-->
+                
+            </div>
+            <div class="slider">
+                <div class="slides">
+                    <!--Radio Buttons-->
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+                    <!--Fim Radio Buttons-->
+                    <!--Navegação Automatica-->
+                    <div class="auto-navigation">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4"></div>
+                    </div>
+                    <!--Fim Navegação Automatica-->
+                    <div class="slide first">
+                        <div class="page-inner-content"> 
+                            <div class="cols cols-3">
+                                <h3>Nome do Produto<img src="/static/img/products/terco09.png"/></h3>
+                                <h3>Nome do Produto<img src="/static/img/products/terco10.png"/></h3>
+                                <h3>Nome do Produto<img src="/static/img/products/terco11.png"/></h3>           
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="page-inner-content"> 
+                            <div class="cols cols-3">
+                                <h3>Nome do Produto<img src="/static/img/products/terco12.png"/></h3>
+                                <h3>Nome do Produto<img src="/static/img/products/terco13.png"/></h3>
+                                <h3>Nome do Produto<img src="/static/img/products/terco14.png"/></h3>      
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="page-inner-content"> 
+                            <div class="cols cols-3">
+                                <h3>Nome do Produto<img src="/static/img/products/terco15.png"/></h3>
+                                <h3>Nome do Produto<img src="/static/img/products/terco09.png"/></h3>
+                                <h3>Nome do Produto<img src="/static/img/products/terco10.png"/></h3>      
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="page-inner-content"> 
+                            <div class="cols cols-3">
+                                <h3>Nome do Produto<img src="/static/img/products/terco11.png"/></h3>
+                                <h3>Nome do Produto<img src="/static/img/products/terco12.png"/></h3>
+                                <h3>Nome do Produto<img src="/static/img/products/terco13.png"/></h3>           
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <!--Navegação Manual-->
+                <div class="manual-navigation">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>        
+                </div>                
+                <!--Fim Navegação Manual-->
+            </div>
+        </div>                       
+        <div>            
+            <!--Ultimos Produtos-->
+            <div class="page-inner-content">
+                <h3 class="section-title">Últimos Produtos</h3>
+                <div class="subtitle-underline"></div>
+                <div class="cols cols-4">
+                    {% for produto in produtos %}
+                        <div class="product">
+                            <a href="{{ url_for('produto', produto_id=produto[0]) }}">
+                            <img src="{{ url_for('static', filename=produto[3]) }}" alt="{{ produto[1] }}">
+                            <p class="product-name">{{ produto[1] }}</p>
+                            </a>
+                            <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                            <p class="product-price">R$ {{ '{:.2f}'.format(produto[2]) }}</p>
+                        </div>
+                    {% endfor %}                                                         
+                </div>
+            </div>            
+        </div>
+        <!--Conteudo Exclusivo-->
+        <div class="pink-background">
+            <div class="header-inner-content">
+                <div class="header-bottom-side exclusive-container">
+                    <div class="header-bottom-side-left">
+                        <h2>Rodas Personalizadas</h2>
+                        <p>Agende o seu horário</p>
+                        <button>Ver Agora &#8594;</button>
+                    </div>
+                    <div class="header-bottom-side-right">
+                        <img src="/static/img/products/roda1.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <!--Avaliações-->
+        <div>
+            <div class="page-inner-content">
+                <div class="avaliacoes">
+                    <div class="avaliacao">
+                        <p>"</p>
+                        <p>Melhor site para comprar peças automotivas!
+                        </p>
+                        <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                        <p>Pedro Vasconcelos</p>
+                    </div>
+                    <div class="avaliacao">
+                        <p>"</p>
+                        <p>Melhor site para comprar peças automotivas!
+                        </p>
+                        <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                        <p>Pedro Vasconcelos</p>
+                    </div>
+                    <div class="avaliacao">
+                        <p>"</p>
+                        <p>Melhor site para comprar peças automotivas!
+                        </p>
+                        <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                        <p>Pedro Vasconcelos</p>
+                    </div>
+                </div>                    
+            </div>
+        </div>       
+    </main>
+    <footer class="pink-background">
+        <div class="page-inner-content footer-content">
+            <div class="download-options">
+                <p>Baixe nosso Aplicativo</p>
+                <p>Baixe nosso Aplicativo para Android e iOS</p>
+                <div>
+                    <img src="/static/img/play-store.png"/>                                                       
+                    <img src="/static/img/app-store.png"/>                    
+                </div>
+            </div>
+            <div class="logo-footer">
+                <a href="/index.html" class="logo"><img src="/static/img/logo-garage.png"></a>
+                <p>Ecommerce de Terços</p>
+            </div>
+            <div class="links-footer">
+                <h3>Links úteis</h3>
+                <ul>
+                    <li>Cupons</li>
+                    <li>Blog Post</li>
+                    <li>Políticas</li>
+                    <li>Torne-se Afiliado</li>                    
+                </ul>
+            </div>
+        </div>
+        <hr class="page-inner-content"/>
+        <div class="page-inner-content copyright">
+            <p>Copyright 2024 - Pedro Vasconcelos  - Todos os Direitos Reservados</p>
+        </div>
+    </footer>
+    <script src="/static/scripts/script.js"></script>           
+</body>
+</html>

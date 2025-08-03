@@ -1,0 +1,114 @@
+/* edit_user.css */
+
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Fundo cinza claro */
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.user-container {
+    background: #ffffff; /* Fundo branco */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Título */
+h2 {
+    text-align: center;
+    color: #343a40; /* Cinza escuro */
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Campos do formulário */
+.form-group label {
+    font-size: 14px;
+    color: #495057; /* Cinza médio */
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dee2e6; /* Borda clara */
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f8f9fa; /* Fundo claro */
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #007bff; /* Azul ao focar */
+    outline: none;
+}
+
+/* Botões */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}

@@ -1,0 +1,14 @@
+16.10.24 - Dar zoom no produto na tela do produto
+2̶1̶.̶1̶0̶.̶2̶4̶ ̶-̶ ̶P̶a̶g̶i̶n̶a̶ ̶d̶e̶ ̶A̶d̶m̶i̶n̶
+2̶0̶.̶1̶1̶.̶2̶4̶ ̶-̶ ̶A̶r̶r̶u̶m̶a̶r̶ ̶b̶a̶n̶c̶o̶ ̶p̶r̶o̶d̶u̶t̶o̶s̶
+2̶0̶.̶1̶1̶.̶2̶4̶ ̶-̶ ̶D̶̶̶e̶̶̶s̶̶̶c̶̶̶o̶̶̶b̶̶̶r̶̶̶i̶̶̶r̶̶̶ ̶̶̶o̶̶̶ ̶̶̶q̶̶̶u̶̶̶e̶̶̶ ̶̶̶e̶̶̶s̶̶̶t̶̶̶á̶̶̶ ̶̶̶d̶̶̶u̶̶̶p̶̶̶l̶̶̶i̶̶̶c̶̶̶a̶̶̶n̶̶̶d̶̶̶o̶̶̶ ̶̶̶a̶̶̶ ̶̶̶l̶̶̶i̶̶̶s̶̶̶t̶̶̶a̶̶̶ ̶̶̶d̶̶̶e̶̶̶ ̶̶̶p̶̶̶r̶̶̶o̶̶̶d̶̶̶u̶̶̶t̶̶̶o̶̶̶s̶̶̶
+2̶0̶.̶1̶1̶.̶2̶4̶ ̶-̶ ̶I̶̶̶m̶̶̶p̶̶̶l̶̶̶e̶̶̶m̶̶̶e̶̶̶n̶̶̶t̶̶̶a̶̶̶r̶̶̶ ̶̶̶a̶̶̶u̶̶̶t̶̶̶o̶̶̶ ̶̶̶i̶̶̶n̶̶̶c̶̶̶r̶̶̶e̶̶̶m̶̶̶e̶̶̶n̶̶̶t̶̶̶o̶̶̶ ̶̶̶d̶̶̶o̶̶̶s̶̶̶ ̶̶̶p̶̶̶r̶̶̶o̶̶̶d̶̶̶u̶̶̶t̶̶̶o̶̶̶s̶̶̶ ̶̶̶a̶̶̶d̶̶̶i̶̶̶c̶̶̶i̶̶̶o̶̶̶n̶̶̶a̶̶̶d̶̶̶o̶̶̶s̶̶̶ ̶̶̶n̶̶̶o̶̶̶ ̶̶̶a̶̶̶d̶̶̶m̶̶̶i̶̶̶n̶̶̶
+21.11.24 - Implementar pagina do usuario com historico de compra
+21.11.24 - Organizar a navbar
+
+python -m venv env_desk
+python -m venv env_note
+python -m venv env_bel
+
+pip freeze > requirements.txt
+pip install -r requirements.txt

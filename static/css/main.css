@@ -1,0 +1,212 @@
+/*SLIDER*/
+.slider{
+    margin: 0 auto;
+    max-width: 1300px;
+    height: 450px;
+    overflow: hidden;    
+}
+.slides{
+    position: relative;
+    width: 400%;
+    height: 400px;
+    display: flex;
+}
+.slides input{
+    display: none;
+}
+.slide {
+    transition: 1.5s;
+    width: 25%;
+    position: relative;
+    
+}
+.slide img {
+    width: 1300px;
+    height: 300px;
+    width: 300px;        
+}
+.manual-navigation {
+    position: absolute;
+    width: 1300px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.manual-btn {
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;       
+}
+.manual-btn:not(:last-child){
+    margin-right: 20px;
+}
+.manual-btn:hover{
+    background-color: #fff;
+}
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+#radio2:checked ~ .first{
+    margin-left: -25%;
+}
+#radio3:checked ~ .first{
+    margin-left: -50%;
+}
+#radio4:checked ~ .first{
+    margin-left: -75%;
+}
+.auto-navigation div{
+    border: 2px solid #20a6ff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+.auto-navigation {
+    position: absolute;
+    width: 1300px;
+    margin-top: 410px; 
+    display: flex;   
+    justify-content: center;
+}
+.auto-navigation div:not(:last-child){
+    margin-right: 20px;
+}
+#radio1:checked ~ .auto-navigation .auto-btn1{
+    background-color: #fff;
+}
+#radio2:checked ~ .auto-navigation .auto-btn2{
+    background-color: #fff;
+}
+#radio3:checked ~ .auto-navigation .auto-btn3{
+    background-color: #fff;
+}
+#radio4:checked ~ .auto-navigation .auto-btn4{
+    background-color: #fff;
+}
+/*FIM SLIDER*/
+/* Vitrine - Produtos Selecionados - Ultimos Produtos */
+.pink-background{    
+    background-color: #707070;
+}
+.page-inner-content{
+    max-width: 1280px;
+    margin: 0 auto;     
+}
+.page-inner-content img {
+    border-radius: 20px;
+}
+.download-options img {
+    border-radius: 0;
+}
+.cols{    
+    display: grid;    
+    justify-content: space-evenly;
+    padding: 3rem 1rem;        
+}
+.cols-3{    
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;        
+}
+.cols-3 img{
+    max-width: 100%;
+}
+.cols-3 h3 {
+    font-family: Poppins;
+    text-align: center;
+    color: white;
+    font-size: 20px;    
+}
+.cols-4{        
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;     
+}
+.cols-4 img{
+    max-width: 100%;
+}
+.cols>*{
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.cols>*:hover{
+    transform: translateY(-5px);
+}
+.section-title{
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.8rem;
+}
+.subtitle-underline{
+    width: 100px;
+    height: 5px;
+    background-color: #1600d8;
+    border-radius: 9999px;
+    margin: 8px auto 0 auto;
+}
+.product{
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Faz o link herdar a cor do elemento pai */
+}
+.product-name{
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+.rate{
+    color: #0004ff;
+    font-size: 1.3rem;
+}
+.product-price span{
+    font-weight: bold;
+}
+.exclusive-container{
+    color: #ffffff;
+    flex-direction: row-reverse;
+    padding: 5rem 1rem;
+}
+.exclusive-container img{
+    max-width: 500px;
+}
+/* Avaliações */
+.avaliacoes{
+    display: flex;
+    padding: 4rem 1rem;
+    justify-content: space-evenly;
+}
+.avaliacao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 30%;
+    text-align: center;
+    box-shadow: 0 0 15px #afafaa;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.avaliacao:hover{
+    transform: translateY(-5px);    
+}
+.avaliacao p{
+    margin: 5px 0;
+}
+.avaliacao p:first-child{
+    font-weight: bold;
+    font-size: 5rem;
+    color: #0004ff;
+    margin-top: 3rem;
+    line-height: 2rem;
+}
+.avaliacao p:last-child{
+    font-weight: bold;
+}
+/* Avaliações */

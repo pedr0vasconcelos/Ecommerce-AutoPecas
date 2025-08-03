@@ -1,0 +1,265 @@
+/* CARRINHO */
+main {
+    min-height: 800px;
+    background-color: #e6e6e6;
+    padding: 0 30px 30px;    
+}
+
+.page-title {
+    text-align: center;  
+    padding: 50px;
+    font-size: 40px;      
+}
+
+.content {
+    display: flex;
+}
+
+section {            
+    flex: 1;
+}
+
+aside {            
+    min-width: 250px;
+    margin-left: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead tr {
+    border-bottom: 3px solid #949494;
+}
+
+table thead th {
+    text-align: left;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    color: #666;
+}
+
+table tbody tr {
+    border-bottom: 3px solid #949494;
+}
+
+/* table tbody tr:last-child { 
+    border: 0;
+}*/
+
+table tbody td {
+    padding: 30px 0;
+}
+
+.produto {    
+    display: flex;
+    align-items: center;
+}
+
+.produto img {
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.produto .name {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.produto .category {
+    color: #666;
+}
+
+.produto .info {
+    margin-left: 20px;
+}
+.quantidade {
+    background-color: #ccc;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    width: auto;  /* Ajuste para mesclar botões e quantidade */
+    padding: 0;
+}
+.qty-button {
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+.qty-button:hover {
+    background-color: #bbb; /* Alteração na cor para efeito visual ao passar o mouse */
+}
+.quantidade-value {
+    background-color: #ccc;
+    padding: 0 10px; /* Ajuste para centralizar o valor */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.remove {
+    background-color: #ccc;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+.remove:hover {
+    background: #686868;
+}
+aside .box {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    background: #ddd;
+}
+aside .box header {
+    background: #ddd;
+    padding: 15px 20px;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+}
+aside .box .info {
+    padding: 20px;
+    font-size: 16px;
+}
+aside .box .info > div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+aside .box footer {            
+    background: #d1d1d1;
+    padding: 15px 20px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+aside .box button {            
+    color: green;
+    background: transparent;
+    border: 0;
+    display: flex;        
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+aside .box button i {
+    font-size: 18px;
+}
+aside > button {
+    border: 0;
+    color: white;
+    padding: 15px 0;
+    background: #28a745;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+    cursor: pointer;
+}
+aside > button:hover {
+    background: #3bc55b;
+}
+
+/* Contêiner geral para enquadramento */
+.address-container {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilo da seção de endereço */
+.address-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.address-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.address-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.address-form form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.address-form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.address-form input[type="text"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.2s;
+}
+
+.address-form input[type="text"]:focus {
+    border-color: #28a745;
+    outline: none;
+}
+
+.address-form button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    grid-column: span 2; /* Ocupa toda a largura da grid */
+}
+
+.address-form button:hover {
+    background-color: #218838;
+}
+
+.address-form button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+

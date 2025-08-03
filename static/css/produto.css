@@ -1,0 +1,196 @@
+/* Estilo geral para a página de produto */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.product-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.product-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.product-image {
+    flex: 1 1 50%;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.product-details {
+    flex: 1 1 50%;
+    padding: 20px;
+}
+
+.product-name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.product-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.product-actions label {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.product-actions input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+/* Estilo para o rodapé e a barra de navegação */
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #e74c3c;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.footer-content .download-options {
+    margin-bottom: 20px;
+}
+
+.footer-content .links-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-content .links-footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer-content .links-footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-content .links-footer ul li a:hover {
+    color: #e74c3c;
+}
+
+.footer-content .copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-image, .product-details {
+        flex: 1 1 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+.quantity-container {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.qty-button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    color: #333;
+    outline: none;
+}
+.qty-button:hover {
+    background-color: #e0e0e0;
+}
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    color: #333;
+    outline: none;
+    background-color: transparent;    
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Remove setas do input para Chrome, Safari, Edge, etc. */
+    margin: 0;
+}
+

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carrinho.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+
+</head>
+<body>
+    <!--Barra de Navegação--> 
+    <div class="navbar">
+        <div class="header-inner-content">
+            <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='img/logo-garage2.png') }}" alt="Logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Porcelana</a></li>
+                    <li><a href="{{ url_for('index') }}">Pedra Natural</a></li>
+                    <li><a href="{{ url_for('index') }}">Cristal</a></li>
+                    <li><a href="{{ url_for('index') }}">Pérolas</a></li>
+                    <li><a href="{{ url_for('index') }}">Metal</a></li>
+                    <li><a href="{{ url_for('index') }}">Emborrachados</a></li>
+                </ul>                
+            </nav>
+            <div class="nav-icon-container">
+                {% if session.get('username') == 'admin' %}
+                <a href="{{ url_for('admin') }}"><img src="{{ url_for('static', filename='img/admin.png') }}" alt="Admin"/></a>
+                {% endif %}    
+                {% if session.get('username') %}
+                <a href="{{ url_for('logout') }}"><img src="{{ url_for('static', filename='img/logout.png') }}" alt="Admin"/></a>
+                {% endif %}        
+                <a href="{% if session.get('user_id') %}{{ url_for('user') }}{% else %}{{ url_for('login') }}{% endif %}">
+                    <img src="{{ url_for('static', filename='img/user.png') }}" alt="User"/>
+                </a>
+                <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/instagram.png') }}" alt="Instagram"/></a>
+                <a href="{{ url_for('carrinho') }}" class="cart-icon">
+                <img src="{{ url_for('static', filename='img/cart.png') }}" alt="Carrinho"/>
+                <!-- Sempre renderize o span para a contagem -->
+                <span id="cart-count" class="cart-count">{{ quantidade_total if quantidade_total > 0 else 0 }}</span>
+            </a>
+            <img src="{{ url_for('static', filename='img/menu.png') }}" class="menu-button" alt="Menu"/> 
+            </div>                        
+        </div>
+    </div>
+    <main>
+        <div class="page-title">Seu Carrinho</div>
+        <div class="content">
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Preço Unitário</th>
+                            <th>Quantidade</th>
+                            <th>Total</th>
+                            <th></th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in carrinho %}
+                        <tr>
+                            <td>
+                                <div class="produto">
+                                    <img src="{{ url_for('static', filename=item['imagem']) }}">
+                                    <div class="info">
+                                        <div class="name">{{ item['nome'] }}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>R$ {{ "%.2f"|format(item['preco']|float) }}</td>
+                            <td>
+                                <div class="quantidade">
+                                    <form action="{{ url_for('atualizar_quantidade', produto_id=item['id']) }}" method="post" style="display: flex; align-items: center;">
+                                        <button type="submit" name="acao" value="decrementar" class="qty-button">-</button>
+                                        <span class="quantidade-value">{{ item['quantidade'] }}</span>
+                                        <button type="submit" name="acao" value="incrementar" class="qty-button">+</button>
+                                    </form>
+                                </div>
+                            </td>                                                        
+                            <td>R$ {{ "%.2f"|format(item['quantidade'] * item['preco']|float) }}</td>
+                            <td>
+                                <form action="{{ url_for('remover_do_carrinho', produto_id=item['id']) }}" method="post">
+                                    <button class="remove" type="submit"><i class='bx bx-x'></i></button>
+                                </form>
+                            </td>                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>                    
+                </table>
+            </section>
+            <aside>
+                <div class="box">
+                    <header>Resumo da Compra</header>
+                    <div class="info">
+                        <div><span>Sub-Total</span><span>R$ {{ "%.2f"|format(subtotal) }}</span></div>
+                        <div><span>Frete</span><span>Gratuito</span></div>
+                    </div>
+                    <footer>
+                        <span>Total</span>
+                        <span>R$ {{ "%.2f"|format(subtotal) }}</span>
+                    </footer>
+                </div>
+                
+            </aside>                                                                                 
+        </div>
+        <div class="address-container">
+            <div class="address-form">
+                <h3>Endereço para entrega</h3>
+                <form id="addressForm">
+                    <div>
+                        <label for="rua">Rua:</label>
+                        <input type="text" id="rua" name="rua" required>
+                    </div>
+                    <div>
+                        <label for="numero">Número:</label>
+                        <input type="text" id="numero" name="numero" required>
+                    </div>
+                    <div>
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" id="bairro" name="bairro" required>
+                    </div>
+                    <div>
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" required>
+                    </div>
+                    <div>
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" name="estado" required>
+                    </div>
+                </form>  
+                <button id="finalizarCompra" class="checkout" disabled data-link="{{ link_pagamento }}">Finalizar Compra</button>
+            </div>
+        </div> 
+    </main>        
+    <footer class="pink-background">
+        <div class="page-inner-content footer-content">
+            <div class="download-options">
+                <p>Baixe nosso Aplicativo</p>
+                <p>Baixe nosso Aplicativo para Android e iOS</p>
+                <div>
+                    <img src="/static/img/play-store.png" alt="" />
+                    <img src="/static/img/app-store.png" alt="" />
+                </div>
+            </div>
+            <div class="logo-footer">
+                <a href="/index.html" class="logo"><img src="/static/img/Afeto.png"></a>
+                <p>Ecommerce de Terços</p>
+            </div>
+            <div class="links-footer">
+                <h3>Links úteis</h3>
+                <ul>
+                    <li>Cupons</li>
+                    <li>Blog Post</li>
+                    <li>Políticas</li>
+                    <li>Torne-se Afiliado</li>                    
+                </ul>
+            </div>
+        </div>
+        <hr class="page-inner-content"/>
+        <div class="page-inner-content copyright">
+            <p>Copyright 2024 - Pedro Vasconcelos  - Todos os Direitos Reservados</p>
+        </div>
+    </footer>  
+    <script src="/static/scripts/script.js"></script>
+    <script src="/static/scripts/carrinho.js"></script> 
+</body>
+</html>

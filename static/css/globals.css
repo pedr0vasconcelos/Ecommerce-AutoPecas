@@ -1,0 +1,97 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Poppins', sans-serif;        
+}
+.logo {
+    font-family: 'Great Vibes', sans-serif;    
+    letter-spacing: 5px;    
+}
+@media (max-width: 800px) {
+    .logo{
+        font-size: 1.2rem;
+    }
+    .menu-button {
+        display: block;
+    }
+    .header-bottom-side{
+        flex-direction: column;
+        align-items: center;
+        padding-top: 4rem;
+    }
+    nav{
+        position: absolute;
+        background-color: #CE6F83;
+        width: 100%;
+        top: 46px;
+        display: none;
+    }    
+    .show-menu nav{
+        display: block;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        text-align: center;
+        padding: 0.8rem;        
+    }    
+}
+@media (max-width: 800px){
+    .section-title{
+        font-size: 1rem;
+    }
+    .cols-3{
+        grid-template-columns: repeat(1, 1fr);
+    }    
+    .cols-4{
+        grid-template-columns: repeat(2, 2fr);
+    }
+    .product-name, .product-price, .rate{
+        max-height: 1rem;
+        overflow: hidden;
+        font-size: 0.8rem;        
+    }
+    .exclusive-container{
+        flex-direction: column-reverse;        
+    }
+    .exclusive-container img{
+        margin-bottom: 4rem;
+    }
+}
+/* Media Query */
+@media (max-width: 800px) {
+    .avaliacoes{
+        flex-direction: column;
+    }
+    .avaliacao{
+        margin-bottom: 1.2rem;
+    }
+}
+/* Media Query */
+@media (max-width: 800px){
+    .footer-content{
+        display: inline;
+        font-size: 0.8rem;
+    }
+    .footer-content>div{
+        padding: 1rem;
+    }
+    .download-options>div{
+        display: inline;
+    }
+    .download-options>div img{
+        width: 120px;
+    }
+    .copyright{
+        font-size: 0.8rem;
+    }
+}
+/* Media Query */
+
+
+
+

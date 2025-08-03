@@ -1,0 +1,188 @@
+/* Reset de margens e padding para um layout mais consistente */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cor de fundo geral e fonte */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+
+
+/* Container principal do painel de administração */
+.admin-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Títulos do painel */
+h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2rem;
+    color: #4CAF50;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 65px;
+}
+
+/* Estilos para as seções dentro do painel */
+section {
+    margin-bottom: 40px;
+}
+
+.produto-imagem {
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: cover; /* Garante que a imagem se ajuste proporcionalmente */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Formulário de adicionar produto */
+.add-product form {
+    display: grid;
+    gap: 15px;
+}
+
+.add-product input, .add-product textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.add-product button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.add-product button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para a tabela de produtos */
+.manage-products table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.manage-products th, .manage-products td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.manage-products th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.manage-products td {
+    background-color: #fafafa;
+}
+
+.manage-products a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.manage-products a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para links de editar e remover */
+.manage-products a.edit {
+    color: #af4c4c;
+}
+
+.manage-products a.remove {
+    color: #F44336;
+}
+
+.manage-products a.edit:hover {
+    color: #45a049;
+}
+
+.manage-products a.remove:hover {
+    color: #e53935;
+}
+
+.admin-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.admin-buttons h4 {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.admin-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.2s ease;
+}
+
+.admin-buttons button:hover {
+    transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
+}
+
+.admin-buttons button img {
+    width: 100px; /* Largura da imagem */
+    height: 100px; /* Altura da imagem */
+    margin-bottom: 10px; /* Espaço entre imagem e texto */
+}
+
+.admin-buttons button span {
+    display: block;
+    font-size: 16px; /* Tamanho do texto abaixo da imagem */
+    color: #333; /* Cor do texto */
+    font-weight: bold;
+}
+
+
+/* Responsividade: para telas menores */
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 15px;
+    }
+
+    .add-product form {
+        grid-template-columns: 1fr;
+    }
+
+    .manage-products table {
+        font-size: 0.9rem;
+    }
+}
