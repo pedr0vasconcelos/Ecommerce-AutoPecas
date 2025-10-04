@@ -59,6 +59,11 @@
                     <button type="submit">Adicionar Produto</button>
                 </form>
             </section>
+            <section class="bulk-edit-button">
+                <a href="{{ url_for('editar_varios_produtos') }}" class="btn btn-primary">
+                Editar Vários Produtos
+                </a>
+            </section>
     
             <section class="manage-products">
                 <h3>Gerenciar Produtos Existentes</h3>
@@ -100,7 +105,7 @@
                 </div>
             </div>
             <div class="logo-footer">
-              <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='img/Afeto.png') }}" alt="Logo"></a>
+              <a href="/index.html" class="logo"><img src="/static/img/logo-garage.png"></a>
                 <p>Ecommerce de Terços</p>
             </div>
             <div class="links-footer">

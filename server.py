@@ -645,6 +645,67 @@ def editar_produto(produto_id):
 
     return render_template('editar_produto.html', produto=produto)
 
+# NOVO: Rota para exibir a lista de produtos editáveis
+@app.route('/editar_varios_produtos', methods=['GET'])
+def editar_varios_produtos():
+    if session.get('username') != 'admin':
+        flash("Acesso negado. Faça login como administrador para acessar.")
+        return redirect(url_for('login'))
+    
+    conn = get_loja_db_connection()
+    # Carrega todos os produtos ordenados por ID
+    produtos = conn.execute('SELECT * FROM produtos ORDER BY id').fetchall()
+    conn.close()
+    
+    return render_template('editar_varios_produtos.html', produtos=produtos)
+
+# NOVO: Rota para salvar todas as alterações
+@app.route('/salvar_varios_produtos', methods=['POST'])
+def salvar_varios_produtos():
+    if session.get('username') != 'admin':
+        flash("Acesso negado.")
+        return redirect(url_for('login'))
+
+    # Pega listas de todos os IDs e seus respectivos campos
+    # Usamos getlist para capturar todos os valores de inputs com o mesmo 'name'
+    ids = request.form.getlist('produto_id')
+    nomes = request.form.getlist('nome')
+    precos = request.form.getlist('preco')
+    descricoes = request.form.getlist('descricao')
+    
+    conn = get_loja_db_connection()
+    
+    try:
+        total_alteracoes = 0
+        
+        # Itera sobre os IDs e atualiza cada produto
+        for i, produto_id_str in enumerate(ids):
+            produto_id = int(produto_id_str)
+            nome = nomes[i]
+            preco = float(precos[i].replace(',', '.')) # Garante que aceita vírgula ou ponto
+            descricao = descricoes[i]
+            
+            # Executa o UPDATE
+            conn.execute('''
+                UPDATE produtos 
+                SET nome = ?, preco = ?, descricao = ? 
+                WHERE id = ?
+            ''', (nome, preco, descricao, produto_id))
+            
+            total_alteracoes += 1
+            
+        conn.commit()
+        flash(f'{total_alteracoes} produtos atualizados com sucesso!', 'success')
+        
+    except Exception as e:
+        conn.rollback()
+        flash(f'Erro ao salvar alterações: {e}', 'danger')
+        
+    finally:
+        conn.close()
+        
+    return redirect(url_for('product_control'))
+
 @app.route('/remover_produto/<int:produto_id>')
 def remover_produto(produto_id):
     if session.get('username') != 'admin':

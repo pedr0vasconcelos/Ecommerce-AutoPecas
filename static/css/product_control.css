@@ -34,11 +34,28 @@ h3 {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 15px;
+    /* NOVO: Centraliza todos os h3 que não forem sobrescritos */
+    text-align: center; 
 }
 
-/* Formulário de adicionar produto */
+/* ------------------------------------------------ */
+/* AJUSTE PARA LARGURA MÁXIMA E CENTRALIZAÇÃO (750px) */
+/* ------------------------------------------------ */
+
+/* Contêiner de Adição de Produto */
+.add-product {
+    max-width: 750px; /* Largura máxima definida */
+    margin: 0 auto 30px auto; /* Centraliza e adiciona margem inferior */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Formulário de adicionar produto (Layout ajustado para centralização) */
 .add-product form {
-    display: grid;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
     gap: 15px;
 }
 
@@ -47,7 +64,7 @@ h3 {
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
+    width: 100%; /* Ocupa a largura total de .add-product (750px) */
 }
 
 .add-product button {
@@ -59,85 +76,96 @@ h3 {
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease;
+    width: 100%; 
 }
 
 .add-product button:hover {
     background-color: #45a049;
 }
 
-/* Estilo da seção "Gerenciar Produtos" */
+/* Container do botão de edição em massa (Ajustado ao contêiner de 750px) */
+.bulk-edit-button {
+    text-align: center; 
+    margin: 20px auto;
+    max-width: 750px; /* Largura máxima definida */
+}
+
+/* Estilo do botão de edição em massa (Ocupa toda a largura do seu contêiner) */
+.bulk-edit-button .btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 12px 20px; 
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.bulk-edit-button .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* ------------------------------------------------ */
+/* ESTILOS DE GERENCIAMENTO DE PRODUTOS (TABELA) */
+/* ------------------------------------------------ */
+
 .manage-products {
     margin: 20px auto;
     padding: 20px;
-    background-color: #ffffff; /* Fundo branco */
-    border: 1px solid #dee2e6; /* Borda clara */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .manage-products h3 {
-    text-align: center; /* Centraliza o título */
-    color: #343a40; /* Cinza escuro */
-    font-size: 20px; /* Ajusta o tamanho do texto */
-    margin-bottom: 20px; /* Espaçamento inferior */
-}
-
-/* Estilo da seção "Gerenciar Produtos" */
-.manage-products {
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff; /* Fundo branco */
-    border: 1px solid #dee2e6; /* Borda clara */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
-}
-
-.manage-products h3 {
-    text-align: center; /* Centraliza o título */
-    color: #343a40; /* Cinza escuro */
-    font-size: 20px; /* Ajusta o tamanho do texto */
-    margin-bottom: 20px; /* Espaçamento inferior */
+    text-align: center;
+    color: #343a40;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
 /* Estilo da tabela */
 .manage-products table {
-    width: 100%; /* Ocupa a largura total */
-    border-collapse: collapse; /* Remove espaçamentos internos */
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 10px;
 }
 
 .manage-products th, .manage-products td {
-    padding: 12px; /* Espaçamento interno */
-    text-align: center; /* Centraliza o texto */
-    border: 1px solid #dee2e6; /* Borda clara */
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #dee2e6;
 }
 
 .manage-products th {
-    background-color: #343a40; /* Fundo do cabeçalho */
-    color: #ffffff; /* Texto branco */
+    background-color: #343a40;
+    color: #ffffff;
 }
 
 .manage-products tr:nth-child(even) {
-    background-color: #f8f9fa; /* Fundo das linhas pares */
+    background-color: #f8f9fa;
 }
 
 .manage-products tr:hover {
-    background-color: #e9ecef; /* Fundo ao passar o mouse */
+    background-color: #e9ecef;
 }
 
 /* Estilo das imagens */
 .manage-products .produto-imagem {
-    max-width: 60px; /* Limita o tamanho da imagem */
+    max-width: 60px;
     height: auto;
-    border-radius: 4px; /* Arredonda as bordas */
+    border-radius: 4px;
     display: block;
-    margin: 0 auto; /* Centraliza a imagem */
+    margin: 0 auto;
 }
 
 /* Estilo dos botões */
 .manage-products a {
     padding: 6px 12px;
-    border-radius: 4px; /* Bordas arredondadas */
+    border-radius: 4px;
     text-decoration: none;
     font-size: 14px;
     font-weight: bold;
@@ -147,25 +175,25 @@ h3 {
 
 /* Botão Editar */
 .manage-products a[href*="editar_produto"] {
-    background-color: #007bff; /* Azul */
-    color: #ffffff; /* Texto branco */
+    background-color: #007bff;
+    color: #ffffff;
     border: 1px solid #007bff;
 }
 
 .manage-products a[href*="editar_produto"]:hover {
-    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+    background-color: #0056b3;
     border-color: #0056b3;
 }
 
 /* Botão Remover */
 .manage-products a[href*="remover_produto"] {
-    background-color: #dc3545; /* Vermelho */
-    color: #ffffff; /* Texto branco */
+    background-color: #dc3545;
+    color: #ffffff;
     border: 1px solid #dc3545;
 }
 
 .manage-products a[href*="remover_produto"]:hover {
-    background-color: #bd2130; /* Vermelho mais escuro ao passar o mouse */
+    background-color: #bd2130;
     border-color: #bd2130;
 }
 
@@ -180,7 +208,6 @@ h3 {
     }
 
     .manage-products .produto-imagem {
-        max-width: 50px; /* Ajusta o tamanho da imagem em telas menores */
+        max-width: 50px;
     }
 }
-
