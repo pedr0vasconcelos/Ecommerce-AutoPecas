@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">          
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_user.css') }}">
+    <script src="/assets/scripts/script.js"></script>
+</head>
+<body>
+    <div class="navbar">
+      <div class="header-inner-content">
+        <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='img/logo-garage2.png') }}" alt="Logo"></a>
+          <nav>
+            <ul>
+              <li><a href="{{ url_for('index') }}">Porcelana</a></li>
+              <li><a href="{{ url_for('index') }}">Pedra Natural</a></li>
+              <li><a href="{{ url_for('index') }}">Madeira</a></li>
+              <li><a href="{{ url_for('index') }}">Prata</a></li>
+            </ul>
+          </nav>
+      </div>
+    </div>
+    
+<main class="page-inner-content edit-container">
+    <div class="edit-box">
+        <h2>Editar Produto: {{ produto.nome }}</h2>
+
+        <form action="{{ url_for('editar_produto', produto_id=produto.id) }}" method="POST" enctype="multipart/form-data">
+            
+            <div class="form-group">
+                <label for="nome">Nome do Produto</label>
+                <input type="text" id="nome" name="nome" class="form-control" value="{{ produto.nome }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="preco">Preço (R$)</label>
+                <input type="number" step="0.01" id="preco" name="preco" class="form-control" value="{{ '%.2f'|format(produto.preco) }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" name="descricao" class="form-control" rows="4" required>{{ produto.descricao }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Imagem Atual</label>
+                <img src="{{ url_for('static', filename=produto.imagem) }}" alt="Imagem do Produto" style="max-width: 150px; display: block; margin-bottom: 10px;">
+                <input type="hidden" name="imagem_existente" value="{{ produto.imagem }}">
+            </div>
+
+            <div class="form-group">
+                <label for="imagem_file">Substituir Imagem (Opcional)</label>
+                <input type="file" id="imagem_file" name="imagem_file" class="form-control">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                <a href="{{ url_for('product_control') }}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</main>
+
+
+<footer class="pink-background">
+    <div class="page-inner-content footer-content">
+        <div class="download-options">
+            <p>Baixe nosso Aplicativo</p>
+            <p>Baixe nosso Aplicativo para Android e iOS</p>
+            <div>
+                <img src="{{ url_for('static', filename='img/play-store.png') }}" alt="" />
+                <img src="{{ url_for('static', filename='img/app-store.png') }}" alt="" />
+            </div>
+        </div>
+        <div class="logo-footer">
+          <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='img/Afeto.png') }}" alt="Logo"></a>
+            <p>Ecommerce de Terços</p>
+        </div>
+        <div class="links-footer">
+            <h3>Links úteis</h3>
+            <ul>
+                <li>Cupons</li>
+                <li>Blog Post</li>
+                <li>Políticas</li>
+                <li>Torne-se Afiliado</li>                    
+            </ul>
+        </div>
+    </div>
+      <hr class="page-inner-content"/>
+      <div class="page-inner-content copyright">
+        <p>Copyright 2024 - Pedro Vasconcelos  - Todos os Direitos Reservados</p>
+      </div>
+</footer>    
+</body>
+</html>

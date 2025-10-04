@@ -613,14 +613,33 @@ def editar_produto(produto_id):
         nome = request.form['nome']
         preco = request.form['preco']
         descricao = request.form['descricao']
-        imagem = request.form['imagem']
+        
+        # 1. PEGA O PATH DA IMAGEM ATUAL (do campo hidden)
+        imagem_atual = request.form['imagem_existente']
+        imagem = imagem_atual # Inicializa com a imagem atual
 
+        # 2. VERIFICA SE UM NOVO ARQUIVO FOI ENVIADO
+        imagem_file = request.files.get('imagem_file')
+        
+        if imagem_file and imagem_file.filename:
+            # Novo arquivo encontrado: salva e atualiza o path
+            filename = secure_filename(imagem_file.filename)
+            imagem_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            imagem_file.save(imagem_path)
+            
+            # Atualiza a variável 'imagem' com o novo caminho relativo
+            imagem = f'img/products/{filename}'
+
+        # 3. EXECUTA O UPDATE NO BANCO DE DADOS
         conn.execute('UPDATE produtos SET nome = ?, preco = ?, descricao = ?, imagem = ? WHERE id = ?',
                      (nome, preco, descricao, imagem, produto_id))
         conn.commit()
+        conn.close() # Fecha a conexão após o commit
+        
         flash('Produto atualizado com sucesso!', 'success')
         return redirect(url_for('admin'))
 
+    # Método GET (Exibe o formulário)
     produto = conn.execute('SELECT * FROM produtos WHERE id = ?', (produto_id,)).fetchone()
     conn.close()
 
